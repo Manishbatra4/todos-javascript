@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Todo App</title>
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="top">
+    <h1 class="text-center">Todo App</h1>
+    <ul class="list-inline text-center">
+        <li class="list-inline-item border-right pr-3"><h5> Total Todo : <span id="total"></span></h5></li>
+        <li class="list-inline-item border-right pr-3"><h5> Complete Todo : <span id="complete"></span></h5></li>
+        <li class="list-inline-item border-right pr-3"><h5> Incomplete Todo : <span id="incomplete"></span></h5>
+        </li>
+        <li class="list-inline-item">
+            <label class="switch" for="hide">
+                <input id="hide" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </li>
+        <li class="list-inline-item pr-3">
+            <h3>Hide Complete Tasks</h3>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <div class="form">
+        <div class="row">
+            <div class="col-md-8">
+                <form id="new-todo">
+                    <div class="row">
+                        <div class="form-group col-md-10">
+                            <input class="form-control" id="todo" name="text" placeholder="Add Todo" type="text">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <input class="btn btn-success" type="submit" value="Submit">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" id="search" placeholder="search..." type="text">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <ul class="list-group" id="todos"></ul>
+        </div>
+    </div>
+</div>
+
+</body>
+<script crossorigin="anonymous"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
+<script src="js/main.js"></script>
+<script src="js/index.js"></script>
+</html>
