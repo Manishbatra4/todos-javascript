@@ -1,40 +1,11 @@
-const getSaveTodos = function () {
-    const todoJSON = localStorage.getItem('todos');
+import {getTodos, removeTodo, todoToggle} from "./todos";
+import {getFilters} from "./filters";
 
-    if (todoJSON !== null) {
-        return JSON.parse(todoJSON);
-    } else {
-        return [];
-    }
-};
+const renderTodo =  () => {
+    let todos = getTodos();
+    let filters = getFilters();
 
-const saveTodo = function (todos) {
-    localStorage.setItem('todos', JSON.stringify(todos));
-};
-
-function removeTodo(id) {
-    const todoIndex = todos.findIndex(function (todo) {
-        return todo.id === id;
-    });
-
-    if (todoIndex > -1) {
-        todos.splice(todoIndex, 1)
-    }
-}
-
-function todoToggle(id) {
-    const todo = todos.find(function (todo) {
-        return todo.id === id;
-    });
-
-    if (todo !== undefined) {
-        todo.completed = !todo.completed;
-    }
-}
-
-const renderTodo = function (todos, filters) {
-
-    let filteredTodos = todos.filter(function (todo) {
+    let filteredTodos = todos.filter(todo => {
         const searchedTextFilter = todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
         const hideFilter = !filters.hide || !todo.completed;
         return searchedTextFilter && hideFilter;
@@ -81,17 +52,17 @@ const renderTodo = function (todos, filters) {
         button.addEventListener('click', function () {
             if (confirm("Are You Sure You Wanna Delete?")) {
                 removeTodo(todo.id);
-                saveTodo(todos);
-                renderTodo(todos, filters);
+                renderTodo();
             }
         });
 
         checkbox.addEventListener('change', function () {
             todoToggle(todo.id);
-            saveTodo(todos);
-            renderTodo(todos, filters);
+            renderTodo();
         })
 
     })
 
 };
+
+export { renderTodo };
